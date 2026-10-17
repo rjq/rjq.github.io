@@ -6,5 +6,8 @@ order: 4
 
 <img class="rjq-wordmark" src="{{ '/assets/img/rjq-wordmark.svg' | relative_url }}" alt="RJQ">
 
-> Write a short introduction here — who you are, what you work on, and how to get in touch. Edit `_tabs/about.md`{: .filepath }.
-{: .prompt-tip }
+I'm a freelance Compositing Supervisor and Pipeline TD/Consultant with more than 19 years in visual effects, working across feature films, commercials, music videos and interactive experiences.
+
+Leading teams is my greatest strength. I meet clients and artists where they are, find solutions that are both efficient and robust, and help people grow along the way. The projects I lead stay calm even under pressure, and they wrap with clients, production and artists happy with the result and with how we got there.
+
+I bridge the gap between artists and engineers, take projects from start to finish, and build artist-friendly tools for desktop and the cloud. A broad knowledge of the VFX pipeline lets me work smoothly across departments. I've also been an Associate Professor at DePaul University, and a technical trainer and featured speaker for Foundry, the makers of Nuke. I'm always working to grow my craft and give back to the VFX community.
