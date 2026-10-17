@@ -215,3 +215,16 @@ article > header > h1 {
   background: rgb(13 235 255 / 30%);
   color: $rjq-white;
 }
+
+/* About page headshot */
+.rjq-headshot {
+  display: block;
+  width: min(100%, 18rem);
+  height: auto;
+  margin: 0 auto 2.5rem;
+  border-radius: 0.75rem;
+  box-shadow:
+    -3px 0 0 0 rgb(255 170 14 / 70%),
+    3px 0 0 0 rgb(13 235 255 / 70%),
+    0 10px 30px rgb(0 0 0 / 45%);
+}

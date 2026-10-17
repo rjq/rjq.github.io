@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<img class="rjq-wordmark" src="{{ '/assets/img/rjq-wordmark.svg' | relative_url }}" alt="RJQ">
+<img class="rjq-headshot" src="{{ '/assets/img/headshot.jpg' | relative_url }}" alt="Ryan J. Quinlan" width="800" height="800">
 
 I'm a freelance Compositing Supervisor and Pipeline TD/Consultant with more than 19 years in visual effects, working across feature films, commercials, music videos and interactive experiences.
 
