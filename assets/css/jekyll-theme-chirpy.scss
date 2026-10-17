@@ -144,18 +144,13 @@ $rjq-red: #e0304a;
 }
 
 #sidebar {
+  /* the avatar already shows the logo, so drop the duplicate title text */
   .site-title {
-    font-family: Montserrat, sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
-    letter-spacing: -0.02em;
-    @include aberration(2px);
-    transition: text-shadow 0.25s ease;
+    display: none !important; /* beats Bootstrap's .d-block */
+  }
 
-    &:hover {
-      color: var(--site-title-color);
-      @include aberration(3.5px);
-    }
+  .site-subtitle {
+    margin-top: 1.25rem;
   }
 
   #avatar {
@@ -163,6 +158,10 @@ $rjq-red: #e0304a;
       -2px 0 0 1px rgb(255 170 14 / 70%),
       2px 0 0 1px rgb(13 235 255 / 70%),
       0 0 24px rgb(13 235 255 / 15%);
+
+    img:hover {
+      transform: none;
+    }
   }
 
   ul li.nav-item.active .nav-link {
