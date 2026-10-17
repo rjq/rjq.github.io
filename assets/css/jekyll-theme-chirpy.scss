@@ -1,0 +1,218 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}',
+  $font-family-base: ('Source Sans 3', 'Source Sans Pro', 'Microsoft Yahei', sans-serif),
+  $font-family-heading: (Montserrat, 'Microsoft Yahei', sans-serif)
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ==========================================================================
+   RJQ brand — palette sampled from rjq_logo_adobeportfolio_v001.png
+   charcoal ground, white letterforms, warm/cool chromatic-aberration fringes
+   ========================================================================== */
+
+$rjq-bg: #161a1f;
+$rjq-bg-deep: #101317;
+$rjq-surface: #1c2128;
+$rjq-border: #262d35;
+$rjq-white: #f4f7f9;
+$rjq-cyan: #0debff;
+$rjq-blue: #1053f1;
+$rjq-orange: #ffaa0e;
+$rjq-red: #e0304a;
+
+@mixin rjq-dark {
+  /* Framework color */
+  --main-bg: #{$rjq-bg};
+  --mask-bg: rgb(40 47 56);
+  --main-border-color: #{$rjq-border};
+
+  /* Common color */
+  --text-color: #c4cbd2;
+  --text-muted-color: #87919b;
+  --text-muted-highlight-color: #b4bcc4;
+  --heading-color: #{$rjq-white};
+  --label-color: #a3acb5;
+  --blockquote-border-color: #{$rjq-orange};
+  --blockquote-text-color: #9aa3ac;
+  --link-color: #5fdcf7;
+  --link-underline-color: rgb(13 235 255 / 35%);
+  --button-bg: #{$rjq-surface};
+  --btn-border-color: #{$rjq-border};
+  --btn-backtotop-border-color: #{$rjq-border};
+  --card-header-bg: #20262e;
+  --checkbox-checked-color: #{$rjq-cyan};
+  --img-bg: radial-gradient(circle, #{$rjq-bg-deep} 0%, #{$rjq-surface} 100%);
+  --menu-bg: #{$rjq-surface};
+  --menu-border-color: rgb(80 92 104 / 60%);
+  --menu-highlight-bg: rgb(13 235 255 / 8%);
+
+  /* Sidebar */
+  --site-title-color: #{$rjq-white};
+  --site-subtitle-color: #87919b;
+  --sidebar-bg: #{$rjq-bg-deep};
+  --sidebar-border-color: #1d232a;
+  --sidebar-muted-color: #87919b;
+  --sidebar-active-color: #{$rjq-white};
+  --sidebar-hover-bg: #1a1f26;
+  --sidebar-btn-bg: #181d23;
+  --sidebar-btn-color: #87919b;
+  --avatar-border-color: rgb(13 235 255 / 55%);
+
+  /* Topbar */
+  --topbar-bg: rgb(22 26 31 / 72%);
+  --search-border-color: #2b333c;
+  --search-icon-color: #6b7681;
+  --input-focus-border-color: #{$rjq-cyan};
+
+  /* Home page */
+  --post-list-text-color: #c4cbd2;
+  --btn-paginator-hover-color: #222932;
+
+  /* Posts */
+  --toc-highlight: #{$rjq-orange};
+  --toc-popup-border-color: #{$rjq-border};
+  --tag-hover: rgb(13 235 255 / 12%);
+  --tb-odd-bg: #1b2027;
+  --tb-even-bg: #171b21;
+  --footnote-target-bg: rgb(16 83 241 / 45%);
+  --card-bg: #{$rjq-surface};
+  --card-hover-bg: #232a33;
+  --card-shadow: rgb(0 0 0 / 55%) 0 6px 18px 0, rgb(13 235 255 / 10%) 0 0 0 1px;
+  --kbd-bg-color: #{$rjq-surface};
+
+  /* Tags & categories */
+  --tag-border: #2e3741;
+  --tag-shadow: #{$rjq-bg-deep};
+  --dash-color: #2e3741;
+  --search-tag-bg: #20262e;
+  --categories-border: rgb(46 55 65 / 60%);
+  --categories-hover-bg: #232a33;
+
+  /* Archive */
+  --timeline-node-bg: #{$rjq-cyan};
+  --timeline-color: #2e3741;
+
+  /* Code */
+  --language-border-color: #232a31;
+  --highlight-bg-color: #0f1216;
+  --inline-code-bg: rgb(13 235 255 / 7%);
+  --code-header-muted-color: #2b333c;
+
+  #archives li:nth-child(odd) {
+    background-image: linear-gradient(
+      to left,
+      $rjq-bg,
+      #1b2027,
+      #1b2027,
+      #1b2027,
+      $rjq-bg
+    );
+  }
+
+  .highlight,
+  .highlight .w {
+    background-color: #0f1216;
+  }
+}
+
+:root[data-bs-theme='dark'] {
+  @include rjq-dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    @include rjq-dark;
+  }
+}
+
+/* --- Signature chromatic-aberration treatment ---------------------------- */
+
+@mixin aberration($x: 1px) {
+  text-shadow:
+    (-$x) 0 0 rgb(255 170 14 / 85%),
+    $x 0 0 rgb(13 235 255 / 85%),
+    0 0 14px rgb(220 240 255 / 18%);
+}
+
+#sidebar {
+  .site-title {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    @include aberration(2px);
+    transition: text-shadow 0.25s ease;
+
+    &:hover {
+      color: var(--site-title-color);
+      @include aberration(3.5px);
+    }
+  }
+
+  #avatar {
+    box-shadow:
+      -2px 0 0 1px rgb(255 170 14 / 70%),
+      2px 0 0 1px rgb(13 235 255 / 70%),
+      0 0 24px rgb(13 235 255 / 15%);
+  }
+
+  ul li.nav-item.active .nav-link {
+    color: $rjq-white;
+
+    i {
+      color: $rjq-cyan;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Page/post titles get a subtle fringe */
+h1.dynamic-title,
+article > header > h1 {
+  font-weight: 800;
+  @include aberration(1.5px);
+}
+
+/* Mobile topbar title */
+#topbar-title {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+  color: $rjq-white;
+  @include aberration(1.5px);
+}
+
+/* Links: cyan, warm on hover */
+.content a:not(.img-link):hover,
+#post-list a:hover .card-title {
+  color: $rjq-orange !important;
+}
+
+/* Brand wordmark helper for use in pages */
+.rjq-wordmark {
+  display: block;
+  width: min(100%, 26rem);
+  height: auto;
+  margin: 0.5rem auto 2rem;
+}
+
+::selection {
+  background: rgb(13 235 255 / 30%);
+  color: $rjq-white;
+}

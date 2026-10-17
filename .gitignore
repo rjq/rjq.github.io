@@ -1,0 +1,38 @@
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
+
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
+
+# RubyGems
+*.gem
+
+# NPM dependencies
+node_modules
+package-lock.json
+
+# IDE configurations
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Misc
+_sass/vendors
+assets/js/dist
+
+# Hidden system files
+*~
+.DS_Store
+Thumbs.db
+
+# Original logo source art (web-ready versions live in assets/img)
+/*.ai
+/rjq_logo_adobeportfolio_v001.png
+/RJQ_Logo_Rev_v001-3.png
+/RJQ_3d_v004.svg
